@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block content %}
+<table class="table" border="2">
+</table>
+
+<div class="container mt-4">
+  <div class="card shadow-sm" style="max-width: 600px;">
+    <div class="card-header">
+      <h2 class="h5 mb-0">Record Details</h2>
+    </div>
+
+    <div class="card-body">
+      <dl class="row mb-0">
+        <dt class="col-sm-4">Created</dt>
+        <dd class="col-sm-8">{{ records.created_at }}</dd>
+
+        <dt class="col-sm-4">First name</dt>
+        <dd class="col-sm-8">{{ records.first_name }}</dd>
+
+        <dt class="col-sm-4">Last name</dt>
+        <dd class="col-sm-8">{{ records.last_name }}</dd>
+
+        <dt class="col-sm-4">Email</dt>
+        <dd class="col-sm-8">{{ records.email }}</dd>
+
+        <dt class="col-sm-4">Phone</dt>
+        <dd class="col-sm-8">{{ records.phone }}</dd>
+
+        <dt class="col-sm-4">Address</dt>
+        <dd class="col-sm-8">{{ records.address }}</dd>
+
+        <dt class="col-sm-4">City</dt>
+        <dd class="col-sm-8">{{ records.city }}</dd>
+
+        <dt class="col-sm-4">ZIP code</dt>
+        <dd class="col-sm-8">{{ records.zipcode }}</dd>
+      </dl>
+    </div>
+    <div class="card-footer text">
+        <a href="{% url 'record_delete' records.id %}" class="btn btn-danger">Delete</a>&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="{% url 'record_update' records.id %}" class="btn btn-primary">Update</a>&nbsp;&nbsp;&nbsp;&nbsp;
+      <a href="{% url 'home' %}" class="btn btn-secondary">Back</a>
+    </div>
+  </div>
+</div>
+<br><br>
+{% endblock %}
+
