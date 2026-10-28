@@ -3,7 +3,7 @@
 
 {% block content %}
  {% if user.is_authenticated %}
- <h1 class="display-4">Welcome to Django CRM!</h1> 
+ <h1 class="display-5">Welcome to Django CRM!</h1> 
  <br>
 <form method="post" action="{% url 'logout_view' %}">
   {% csrf_token %}
