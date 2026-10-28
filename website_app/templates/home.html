@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %}Home Page Django CRM{% endblock %}
+
+{% block content %}
+ {% if user.is_authenticated %}
+ <h1 class="display-4">Welcome to Django CRM!</h1> 
+ <br>
+<form method="post" action="{% url 'logout_view' %}">
+  {% csrf_token %}
+  <button type="submit" class="btn btn-secondary">Logout</button>
+</form>
+{% else %}
+   <h1>Login</h1>
+   <form method="POST" action="{%url 'home'%}">
+    {% csrf_token %}
+  <div class="mb-3">
+    <input type="text" class="form-control" name="username" placeholder
+    ="Username" required="true">
+  </div>
+    <div class="mb-3">
+    <input type="password" class="form-control" name="password" 
+    placeholder="Password" required="true">
+  </div>
+  <button type="submit" class="btn btn-secondary">Submit</button>
+</form>
+   {% endif %}
+{% endblock %}
